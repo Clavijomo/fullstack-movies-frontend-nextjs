@@ -3,7 +3,11 @@ import { User } from "../../interfaces/User";
 import { useRouter } from "next/navigation"
 import axios from "axios";
 
-export const useLoginUser = () => {
+interface useLoginUserProps {
+    endpoint: string
+}
+
+export const useLoginUser = ({ endpoint }: useLoginUserProps) => {
     const router = useRouter();
 
     const [user, setUser] = useState<User>({ email: '', password: '' });
@@ -13,7 +17,7 @@ export const useLoginUser = () => {
         e.preventDefault()
 
         try {
-            const response = await axios.post('http://localhost:400/auth/login', user);
+            const response = await axios.post(endpoint, user);
             localStorage.setItem('access_token', response.data.access_token);
 
             router.push('/dashboardMovies')

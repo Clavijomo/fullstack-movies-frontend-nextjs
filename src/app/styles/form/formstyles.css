@@ -1,0 +1,35 @@
+.container-register-user {
+    max-width: 90%;
+    color: white;
+    margin: auto;
+    height: 100%;
+}
+
+.container-register-user p {
+    margin: 40px 0px;
+}
+
+.section-registry {
+    height: 100%;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-registry div {
+    height: 100%;
+}
+
+.container-register-user input {
+    width: 95%;
+    padding: 10px;
+}
+
+.button-input {
+    background-color: #F0B90B;
+    border-radius: 4px;
+    padding: 16px;
+    color: black;
+    width: 100%;
+    margin: auto;
+}
