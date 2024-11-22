@@ -1,17 +1,19 @@
+import { Dispatch, SetStateAction } from "react";
 import { useLoginUser } from "../hooks/login/useLoginUser";
 import '../styles/form/formstyles.css';
 
 interface Props {
     endpoint: string
+    setShowModal: Dispatch<SetStateAction<boolean>>
 }
 
-function FormUser({ endpoint }: Props) {
+function FormUser({ endpoint, setShowModal }: Props) {
     const {
         error,
         user,
         handleChange,
         handleSubmit,
-    } = useLoginUser({ endpoint });
+    } = useLoginUser({ endpoint, setShowModal });
 
     const isSignUp = endpoint.includes('register');
 
@@ -39,9 +41,7 @@ function FormUser({ endpoint }: Props) {
                             required
                         />
                     </div>
-                    <div>
-                        <button className="button-input" type="submit">Continue</button>
-                    </div>
+                    <button className="button-input" type="submit">Continue</button>
                 </div>
             </form>
             <p>For any questions, reach out to support@Quickbetdmovies.com</p>

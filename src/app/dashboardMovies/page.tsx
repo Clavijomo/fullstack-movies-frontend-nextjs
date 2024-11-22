@@ -6,10 +6,14 @@ import { useFetchingMovies } from '../hooks/dashboardMovies/useFetchingMovies';
 import '../styles/home.css';
 import { CardMovie } from './_CardMovie';
 import { Banner } from './_Banner';
+import { ModalFormUser } from './_ModalFormUser';
+import { useAuth } from '../context/AuthContext';
 
 function DashBoardMovies() {
     const [selectedCategory, setSelectedCategory] = useState<string>('All');
+    const { token } = useAuth();
     const modules = ['Top Rated', 'Now Playing', 'Popular', 'Upcoming'];
+    const [showModal, setShowModal] = useState<boolean>(!token);
 
     const { listMovies, randomMovie } = useFetchingMovies();
 
@@ -20,10 +24,15 @@ function DashBoardMovies() {
     const filteredMovies =
         selectedCategory === 'All'
             ? listMovies
-            : listMovies.filter((movie) => movie.module === selectedCategory)
+            : listMovies.filter((movie) => movie.module === selectedCategory);
 
     return (
         <>
+            {showModal &&
+                <ModalFormUser
+                    setShowModal={setShowModal}
+                />
+            }
             {randomMovie && <Banner bannerMovie={randomMovie} />}
             <div className='dashboard-container'>
                 <SideMenu

@@ -1,17 +1,18 @@
-import { useState } from "react";
+import axios, { AxiosError } from "axios";
+import { useRouter } from "next/navigation";
+import { Dispatch, SetStateAction, useState } from "react";
 import { User } from "../../interfaces/User";
-import { useRouter } from "next/navigation"
-import axios from "axios";
 
 interface useLoginUserProps {
     endpoint: string
+    setShowModal: Dispatch<SetStateAction<boolean>>
 }
 
-export const useLoginUser = ({ endpoint }: useLoginUserProps) => {
+export const useLoginUser = ({ endpoint, setShowModal }: useLoginUserProps) => {
     const router = useRouter();
 
     const [user, setUser] = useState<User>({ email: '', password: '' });
-    const [error, setError] = useState('');
+    const [error, setError] = useState<string>('');
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -19,10 +20,13 @@ export const useLoginUser = ({ endpoint }: useLoginUserProps) => {
         try {
             const response = await axios.post(endpoint, user);
             localStorage.setItem('access_token', response.data.access_token);
-
+            setShowModal(false);
             router.push('/dashboardMovies')
-        } catch {
-            setError('Credenciales incorrectas');
+        } catch (error) {
+            if (error instanceof AxiosError) {
+                setError(error.response?.data.message);
+                setShowModal(true);
+            }
         }
     }
 
