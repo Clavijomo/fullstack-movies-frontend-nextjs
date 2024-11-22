@@ -2,9 +2,9 @@ import { Movie } from '@/app/interfaces/Movie'
 import Image from 'next/image'
 import '../../styles/movie.css'
 
-type Props = Omit<Movie, | 'date' | 'description' | 'tags' | 'module' | 'rating' | 'favorite' | 'relatedMovies' | 'duration' | 'moviesRecommend'>
+type Props = Omit<Movie, | 'date' | 'id' | 'description' | 'tags' | 'module' | 'rating' | 'favorite' | 'relatedMovies' | 'duration' | 'moviesRecommend'>
 
-export const CardRelated = ({ name, image, id }: Props) => {
+export const CardRelated = ({ name, image }: Props) => {
 
     return (
         <div className='card-related'>
