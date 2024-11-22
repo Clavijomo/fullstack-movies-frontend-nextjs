@@ -25,7 +25,7 @@ export const Banner = ({ bannerMovie }: Props) => {
             }}
             className='banner'
         >
-            <div>
+            <div className='title-container-banner'>
                 <h1 className='title-banner'>{name}</h1>
                 <p>{description}</p>
             </div>

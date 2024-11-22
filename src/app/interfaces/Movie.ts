@@ -6,13 +6,14 @@ export interface Movie {
     duration: number
     rating: number
     tags: string[]
-    relatedMovies: number[]
+    relatedMovies: number[],
+    moviesRecommend?: Movie[]
     favorite: boolean
     module: string
     image: string
 }
 
-export type PosterMovie = Omit<Movie, 'id' | 'description' | 'duration' | 'tags' | 'relatedMovies' | 'modules'>
+export type PosterMovie = Omit<Movie, 'description' | 'duration' | 'tags' | 'relatedMovies' | 'modules'>
 
 export interface BannerMovie {
     name: string

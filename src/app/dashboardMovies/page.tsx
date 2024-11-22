@@ -24,10 +24,8 @@ function DashBoardMovies() {
 
     return (
         <>
-            <div>
-                {randomMovie && <Banner bannerMovie={randomMovie} />}
-                <div className='dashboard-container'>
-                </div>
+            {randomMovie && <Banner bannerMovie={randomMovie} />}
+            <div className='dashboard-container'>
                 <SideMenu
                     handleCategoryClick={handleCategoryClick}
                     modules={modules}
