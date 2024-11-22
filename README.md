@@ -104,28 +104,21 @@ Este es el proyecto frontend para la aplicación **Movies**, desarrollado con **
 Asegúrate de que el backend esté funcionando antes de ejecutar este proyecto. Los endpoints consumidos son:
 
 1. **`GET /movies`**: Obtiene todas las películas.
-2. **`POST /login`**: Inicia sesión y obtiene un token.
-3. **`POST /signup`**: Registra un nuevo usuario.
-4. **`POST /recommend`**: Obtiene recomendaciones basadas en IDs de películas.
+1. **`POST /movies/movie`**: Obtiene una película.
+2. **`POST /auth/login`**: Inicia sesión y obtiene un token.
+3. **`POST /auth/register`**: Registra un nuevo usuario.
+4. **`POST /movies/recommend`**: Obtiene recomendaciones basadas en IDs de películas.
 
 ---
 
 ## ✨ Cómo contribuir
 
-1. Haz un fork del repositorio.
-2. Crea una nueva rama para tu funcionalidad: `git checkout -b feature/nueva-funcionalidad`.
-3. Realiza tus cambios y haz un commit: `git commit -m "Añade nueva funcionalidad"`.
-4. Haz push a tu rama: `git push origin feature/nueva-funcionalidad`.
-5. Abre un Pull Request en GitHub.
+1. Crea una nueva rama para tu funcionalidad: `git checkout -b feature/nueva-funcionalidad`.
+2. Realiza tus cambios y haz un commit: `git commit -m "Añade nueva funcionalidad"`.
+3. Haz push a tu rama: `git push origin feature/nueva-funcionalidad`.
+4. Abre un Pull Request en GitHub.
 
 ---
-
-## 🛡️ Licencia
-
-Este proyecto está bajo la licencia **MIT**. Puedes consultarla en el archivo [LICENSE](./LICENSE).
-
----
-
 ## 🤝 Créditos
 
-Desarrollado por [Tu Nombre] como parte del sistema **Movies App**. Si tienes alguna duda, no dudes en contactarme.
+Desarrollado por Jonathan Clavijo como parte del sistema **Movies App**. Si tienes alguna duda, no dudes en contactarme.
