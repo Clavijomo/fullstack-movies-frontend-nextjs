@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Next.js Movies Frontend
 
-First, run the development server:
+Este es el proyecto frontend para la aplicación **Movies**, desarrollado con **Next.js**, **React** y **TypeScript**. La aplicación consume una API REST y proporciona funcionalidades como autenticación, navegación y visualización de películas.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🛠️ Tecnologías utilizadas
+
+- **Next.js** 15
+- **React** 19
+- **TypeScript** 5
+- **Axios** para peticiones HTTP
+
+---
+
+## 🚀 Configuración y ejecución del proyecto
+
+### Requisitos previos
+
+- Node.js versión **16 o superior**
+- npm o yarn
+
+### Instalación
+
+1. Clona el repositorio:
+
+   ```bash
+   git clone https://github.com/tu_usuario/tu_repositorio.git
+   ```
+
+2. Navega al directorio del proyecto:
+
+   ```bash
+   cd nextjs-movies
+   ```
+
+3. Instala las dependencias:
+
+   ```bash
+   npm install
+   # o si prefieres usar yarn
+   yarn install
+   ```
+
+### Scripts disponibles
+
+- **`npm run dev`**: Inicia el servidor de desarrollo en `http://localhost:3000`.
+- **`npm run build`**: Construye la aplicación para producción.
+- **`npm start`**: Inicia el servidor en modo producción.
+- **`npm run lint`**: Ejecuta el linter para verificar la calidad del código.
+
+---
+
+## 🌲 Estructura de carpetas
+
+```plaintext
+├── public/                # Archivos estáticos como imágenes, fuentes, etc.
+├── src/app/               # Carpeta principal de la aplicación
+│   ├── components/        # Componentes reutilizables de la aplicación
+│   ├── dashboardMovies/   # Dashboard de películas
+│   ├── fonts/             # Fuentes personalizadas
+│   ├── hooks/login/       # Hooks personalizados para login
+│   ├── interfaces/        # Tipos e interfaces de TypeScript
+│   ├── login/             # Componentes y lógica para autenticación
+│   ├── resources/login/   # Recursos adicionales para la autenticación
+│   ├── styles/login/      # Estilos relacionados con el login
+│   ├── favicon.ico        # Icono de la aplicación
+│   ├── globals.css        # Estilos globales de la aplicación
+│   ├── layout.tsx         # Componente de diseño principal
+│   └── page.tsx           # Página de inicio
+├── .eslintrc.json         # Configuración de ESLint
+├── .gitignore             # Archivos ignorados por Git
+├── next.config.ts         # Configuración personalizada de Next.js
+├── package.json           # Configuración de dependencias y scripts
+├── package-lock.json      # Registro de dependencias
+├── tsconfig.json          # Configuración de TypeScript
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🌟 Funcionalidades principales
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Autenticación:**
+   - Formulario de inicio de sesión y registro.
+   - Validación de usuario y generación de token JWT.
 
-## Learn More
+2. **Navegación:**
+   - Diseño de interfaz responsivo.
+   - Gestión de rutas dinámicas para la visualización de películas.
 
-To learn more about Next.js, take a look at the following resources:
+3. **Consumo de API:**
+   - Axios configurado para interactuar con el backend.
+   - Manejo de estados para las películas y autenticación.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Componentización:**
+   - Diseño modular con componentes reutilizables.
+   - Separación de lógica y presentación.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🌐 Endpoints de la API consumidos
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Asegúrate de que el backend esté funcionando antes de ejecutar este proyecto. Los endpoints consumidos son:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **`GET /movies`**: Obtiene todas las películas.
+2. **`POST /login`**: Inicia sesión y obtiene un token.
+3. **`POST /signup`**: Registra un nuevo usuario.
+4. **`POST /recommend`**: Obtiene recomendaciones basadas en IDs de películas.
+
+---
+
+## ✨ Cómo contribuir
+
+1. Haz un fork del repositorio.
+2. Crea una nueva rama para tu funcionalidad: `git checkout -b feature/nueva-funcionalidad`.
+3. Realiza tus cambios y haz un commit: `git commit -m "Añade nueva funcionalidad"`.
+4. Haz push a tu rama: `git push origin feature/nueva-funcionalidad`.
+5. Abre un Pull Request en GitHub.
+
+---
+
+## 🛡️ Licencia
+
+Este proyecto está bajo la licencia **MIT**. Puedes consultarla en el archivo [LICENSE](./LICENSE).
+
+---
+
+## 🤝 Créditos
+
+Desarrollado por [Tu Nombre] como parte del sistema **Movies App**. Si tienes alguna duda, no dudes en contactarme.
