@@ -1,21 +1,20 @@
-import { Dispatch, SetStateAction, useState } from "react";
-import FormUser from "../components/FormUser";
 import Image from "next/image";
-import LoginIcon from '../resources/login/02.png'
+import { useState } from "react";
+import FormUser from "../components/FormUser";
+import { useAuth } from "../context/AuthContext";
+import LoginIcon from '../resources/login/02.png';
 import SignUpIcon from '../resources/signUpIcon.png';
-import '../styles/login/login.css'
+import '../styles/login/login.css';
 
 const LOGIN = `${process.env.NEXT_PUBLIC_API_BASE_URL}${process.env.NEXT_PUBLIC_LOGIN_ENDPOINT}`
 const SIGN_UP = `${process.env.NEXT_PUBLIC_API_BASE_URL}${process.env.NEXT_PUBLIC_SIGNUP_ENDPOINT}`
 
-interface Props {
-    setShowModal: Dispatch<SetStateAction<boolean>>
-}
-
-export const ModalFormUser = ({ setShowModal }: Props) => {
+export const ModalFormUser = () => {
     const [redirect, setRedirect] = useState<boolean>(true);
     const [endpoint, setEndpoint] = useState<string>(LOGIN);
     const [activeButton, setActiveButton] = useState<string | null>('login');
+
+    const { closeModal } = useAuth();
 
     const handleRedirect = (formType: 'login' | 'signUp') => {
         setRedirect(true);
@@ -42,7 +41,12 @@ export const ModalFormUser = ({ setShowModal }: Props) => {
                         </button>
                     </div>
                     <div className='container-register-user'>
-                        {redirect && <FormUser setShowModal={setShowModal} endpoint={endpoint} />}
+                        {redirect &&
+                            <FormUser
+                                onSuccess={() => closeModal()}
+                                endpoint={endpoint}
+                            />
+                        }
                     </div>
                 </div>
                 <div className='container-info-login'>

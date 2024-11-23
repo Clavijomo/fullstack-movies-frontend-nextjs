@@ -6,13 +6,17 @@ import { jwtDecode } from 'jwt-decode';
 interface AuthContextType {
     token: string | null;
     decodedToken: Record<string, any> | null;
+    showModal: boolean;
     setToken: (token: string) => void;
+    closeModal: () => void;
     logout: () => void;
 }
 
 const AuthContext = createContext<AuthContextType>({
     token: null,
+    showModal: true,
     decodedToken: null,
+    closeModal: () => { },
     setToken: () => { },
     logout: () => { }
 });
@@ -20,6 +24,7 @@ const AuthContext = createContext<AuthContextType>({
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [token, setTokenState] = useState<string | null>(null);
     const [decodedToken, setDecodedToken] = useState<Record<string, any> | null>(null);
+    const [showModal, setShowModal] = useState<boolean>(true);
 
     const setToken = (newToken: string) => {
         setTokenState(newToken);
@@ -27,15 +32,21 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         try {
             const decoded = jwtDecode(newToken);
             setDecodedToken(decoded);
+            setShowModal(false);
         } catch (error) {
             console.error('Failed to decode token:', error);
             setDecodedToken(null);
         }
     };
 
+    const closeModal = () => {
+        setShowModal(false);
+    }
+
     const logout = () => {
         setTokenState(null);
         setDecodedToken(null);
+        localStorage.removeItem('access_token');
     };
 
     useEffect(() => {
@@ -43,10 +54,34 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         if (savedToken) {
             setToken(savedToken);
         }
+
+        const handleStorageChange = () => {
+            const savedToken = localStorage.getItem('access_token');
+            if (savedToken) {
+                return setToken(savedToken);
+            }
+
+            logout();
+        }
+
+        window.addEventListener('storage', handleStorageChange);
+
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+        }
     }, []);
 
     return (
-        <AuthContext.Provider value={{ token, decodedToken, setToken, logout }}>
+        <AuthContext.Provider
+            value={{
+                token,
+                showModal,
+                decodedToken,
+                setToken,
+                closeModal,
+                logout
+            }}
+        >
             {children}
         </AuthContext.Provider>
     );

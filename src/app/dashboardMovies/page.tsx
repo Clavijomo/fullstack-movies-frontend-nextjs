@@ -2,18 +2,17 @@
 
 import { useState } from 'react';
 import { SideMenu } from '../components/shared/SideMenu';
+import { useAuth } from '../context/AuthContext';
 import { useFetchingMovies } from '../hooks/dashboardMovies/useFetchingMovies';
 import '../styles/home.css';
-import { CardMovie } from './_CardMovie';
 import { Banner } from './_Banner';
+import { CardMovie } from './_CardMovie';
 import { ModalFormUser } from './_ModalFormUser';
-import { useAuth } from '../context/AuthContext';
 
 function DashBoardMovies() {
+    const { showModal } = useAuth();
     const [selectedCategory, setSelectedCategory] = useState<string>('All');
-    const { token } = useAuth();
     const modules = ['Top Rated', 'Now Playing', 'Popular', 'Upcoming'];
-    const [showModal, setShowModal] = useState<boolean>(!token);
 
     const { listMovies, randomMovie } = useFetchingMovies();
 
@@ -28,11 +27,7 @@ function DashBoardMovies() {
 
     return (
         <>
-            {showModal &&
-                <ModalFormUser
-                    setShowModal={setShowModal}
-                />
-            }
+            {showModal && <ModalFormUser />}
             {randomMovie && <Banner bannerMovie={randomMovie} />}
             <div className='dashboard-container'>
                 <SideMenu

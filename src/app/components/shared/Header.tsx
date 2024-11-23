@@ -2,15 +2,13 @@
 
 import { useAuth } from '@/app/context/AuthContext';
 import { Person } from '@mui/icons-material';
+import { Avatar } from '@mui/material';
 import Image from 'next/image';
 import LogoHeader from '../../resources/Logo.png';
 import '../../styles/header.css';
-import { Avatar } from '@mui/material';
 
 export const Header = () => {
-    const {
-        decodedToken
-    } = useAuth();
+    const { decodedToken } = useAuth();
 
     return (
         <header className='header'>
@@ -30,9 +28,14 @@ export const Header = () => {
                 </div>
                 <div className='user-login'>
                     {decodedToken?.email ? (
-                        <Avatar>U</Avatar>
-                    ) : (<Person />)}
-                    <p>{decodedToken?.email}</p>
+                        <Avatar
+                            sx={{ backgroundColor: '#F0B90B', color: 'black' }}
+                        >
+                            {decodedToken?.email.charAt(0).toUpperCase()}</Avatar>
+                    ) : (
+                        <Person />
+                    )}
+                    <p>{decodedToken?.email || 'Guest'}</p>
                 </div>
             </div>
         </header>

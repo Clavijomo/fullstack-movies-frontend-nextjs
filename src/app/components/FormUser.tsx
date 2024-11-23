@@ -1,19 +1,18 @@
-import { Dispatch, SetStateAction } from "react";
 import { useLoginUser } from "../hooks/login/useLoginUser";
 import '../styles/form/formstyles.css';
 
 interface Props {
     endpoint: string
-    setShowModal: Dispatch<SetStateAction<boolean>>
+    onSuccess: () => void;
 }
 
-function FormUser({ endpoint, setShowModal }: Props) {
+function FormUser({ endpoint, onSuccess }: Props) {
     const {
         error,
         user,
         handleChange,
         handleSubmit,
-    } = useLoginUser({ endpoint, setShowModal });
+    } = useLoginUser({ endpoint, onSuccess });
 
     const isSignUp = endpoint.includes('register');
 

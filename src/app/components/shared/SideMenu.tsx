@@ -15,7 +15,7 @@ export const SideMenu = ({ handleCategoryClick, selectedCategory, modules }: Sid
                     onClick={() => handleCategoryClick('All')}>
                     Todas
                 </li>
-                {modules.map((module) => (
+                {modules && modules.map((module) => (
                     <li
                         onClick={() => handleCategoryClick(module)}
                         className={selectedCategory === module ? 'active' : ""}

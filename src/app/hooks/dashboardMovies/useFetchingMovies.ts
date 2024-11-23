@@ -12,7 +12,9 @@ export const useFetchingMovies = () => {
 
     const fetchingData = async () => {
         try {
-            const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}${process.env.NEXT_PUBLIC_GET_MOVIES}`)
+            const response = await axios.get(
+                `${process.env.NEXT_PUBLIC_API_BASE_URL}${process.env.NEXT_PUBLIC_GET_MOVIES}`
+            )
             if (response.status === 200 || response.statusText === 'OK') {
                 const movies = response.data;
                 setListMovies(movies);
