@@ -25,7 +25,6 @@ async function fetchMovie(id: number): Promise<Movie> {
 
     } catch (error) {
         if (error instanceof AxiosError && error.response?.status === 404) {
-            console.log(error)
             throw new Error('Movie not Found')
         }
         throw new Error('Failed to fetch');
