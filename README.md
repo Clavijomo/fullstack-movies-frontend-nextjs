@@ -58,8 +58,7 @@ Este es el proyecto frontend para la aplicación **Movies**, desarrollado con **
 ├── public/                # Archivos estáticos como imágenes, fuentes, etc.
 ├── src/app/               # Carpeta principal de la aplicación
 │   ├── components/        # Componentes reutilizables de la aplicación
-│   ├── dashboardMovies/   # Dashboard de películas
-│   ├── fonts/             # Fuentes personalizadas
+│   ├── home/   # Home de películas
 │   ├── hooks/login/       # Hooks personalizados para login
 │   ├── interfaces/        # Tipos e interfaces de TypeScript
 │   ├── login/             # Componentes y lógica para autenticación

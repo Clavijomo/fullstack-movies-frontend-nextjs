@@ -3,13 +3,13 @@
 import { useState } from 'react';
 import { SideMenu } from '../components/shared/SideMenu';
 import { useAuth } from '../context/AuthContext';
-import { useFetchingMovies } from '../hooks/dashboardMovies/useFetchingMovies';
+import { useFetchingMovies } from '../hooks/home/useFetchingMovies';
 import '../styles/home.css';
 import { Banner } from './_Banner';
 import { CardMovie } from './_CardMovie';
 import { ModalFormUser } from './_ModalFormUser';
 
-function DashBoardMovies() {
+function Home() {
     const { showModal } = useAuth();
     const [selectedCategory, setSelectedCategory] = useState<string>('All');
     const modules = ['Top Rated', 'Now Playing', 'Popular', 'Upcoming'];
@@ -56,4 +56,4 @@ function DashBoardMovies() {
     )
 }
 
-export default DashBoardMovies
+export default Home

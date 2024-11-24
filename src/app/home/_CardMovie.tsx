@@ -19,7 +19,7 @@ export const CardMovie = (props: PosterMovie) => {
     } = props
 
     const handleClick = () => {
-        router.push(`dashboardMovies/${id}`)
+        router.push(`home/${id}`)
     }
 
     return (
