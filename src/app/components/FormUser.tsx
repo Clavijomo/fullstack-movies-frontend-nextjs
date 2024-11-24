@@ -18,7 +18,7 @@ function FormUser({ endpoint, onSuccess }: Props) {
 
     return (
         <div className="container-register-user">
-            <p>{!isSignUp && "We love having you back"}</p>
+            <p className="text-info-login">{!isSignUp && "We love having you back"}</p>
             {error && <div className='error-message'>{error}</div>}
             <form onSubmit={handleSubmit}>
                 <div className="section-registry">
@@ -43,7 +43,7 @@ function FormUser({ endpoint, onSuccess }: Props) {
                     <button className="button-input" type="submit">Continue</button>
                 </div>
             </form>
-            <p>For any questions, reach out to support@Quickbetdmovies.com</p>
+            <p className="text-questions">For any questions, reach out to support@Quickbetdmovies.com</p>
         </div>
     )
 }

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { PosterMovie } from "../interfaces/Movie";
 import '../styles/home.css';
 import { useRouter } from 'next/navigation';
+import CircularProgressBar from '../components/shared/Rating';
 
 export const CardMovie = (props: PosterMovie) => {
     const router = useRouter();
@@ -36,12 +37,20 @@ export const CardMovie = (props: PosterMovie) => {
                 <p className="description-movie">{date}</p>
                 <div className="container-info-add">
                     <div>
-                        <p>Rating</p>
-                        <p>{rating}</p>
+                        <CircularProgressBar
+                            score={rating}
+                            minimal={true}
+                        />
                     </div>
                     <div>
                         <p>Favorites</p>
-                        <p>{favorite === true ? <FavoriteBorderIcon fontSize='small' /> : <FavoriteIcon fontSize='small' />}</p>
+                        <p>
+                            {favorite === true ?
+                                <FavoriteBorderIcon fontSize='small' />
+                                :
+                                <FavoriteIcon fontSize='small' />
+                            }
+                        </p>
                     </div>
                 </div>
             </div>

@@ -27,7 +27,7 @@
 }
 
 .container-form-show {
-    display: grid !important;
+    display: grid;
     margin: auto;
     z-index: 10;
 }
@@ -123,4 +123,29 @@
 
 .error-message.fade-out {
     opacity: 0;
+}
+
+/* Mediaquery */
+@media (300px <=width <=1024px) {
+    .overlay-form {
+        width: 100%;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container-info-login {
+        display: none
+    }
+
+    .container-buttons-register button.active {
+        border-radius: 115px;
+    }
 }

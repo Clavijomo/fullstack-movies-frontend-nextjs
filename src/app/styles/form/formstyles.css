@@ -36,3 +36,25 @@
     font-size: 16px;
     margin: auto;
 }
+
+/* Mediaquery */
+@media (300px <=width <=1024px) {
+    .container-register-user .text-info-login {
+        display: none;
+    }
+
+    .button-input {
+        border-radius: 50px;
+        border: none;
+        padding: 10px;
+        color: black;
+        width: 70%;
+        font-size: 16px;
+        margin: auto;
+    }
+
+    .text-questions {
+        line-height: 23px;
+        color: #9e9e9e;
+    }
+}

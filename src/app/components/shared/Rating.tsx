@@ -4,11 +4,12 @@ import '../../styles/rating.css';
 
 interface Props {
     score: number
+    minimal?: boolean
 }
 
-const CircularProgressBar = ({ score }: Props) => {
-    const radius = 30;
-    const stroke = 5;
+const CircularProgressBar = ({ score, minimal }: Props) => {
+    const radius = minimal && minimal ? 23 : 27;
+    const stroke = 4;
     const normalizedScore = Math.min(Math.max(score, 0), 10);
     const circumference = 2 * Math.PI * radius;
     const progress = (normalizedScore / 10) * circumference;

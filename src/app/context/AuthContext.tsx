@@ -9,7 +9,6 @@ interface AuthContextType {
     showModal: boolean;
     setToken: (token: string) => void;
     closeModal: () => void;
-    logout: () => void;
 }
 
 const AuthContext = createContext<AuthContextType>({
@@ -18,7 +17,6 @@ const AuthContext = createContext<AuthContextType>({
     decodedToken: null,
     closeModal: () => { },
     setToken: () => { },
-    logout: () => { }
 });
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
@@ -43,12 +41,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setShowModal(false);
     }
 
-    const logout = () => {
-        setTokenState(null);
-        setDecodedToken(null);
-        localStorage.removeItem('access_token');
-    };
-
     useEffect(() => {
         const savedToken = localStorage.getItem('access_token');
         if (savedToken) {
@@ -60,8 +52,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             if (savedToken) {
                 return setToken(savedToken);
             }
-
-            logout();
         }
 
         window.addEventListener('storage', handleStorageChange);
@@ -79,7 +69,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
                 decodedToken,
                 setToken,
                 closeModal,
-                logout
             }}
         >
             {children}
