@@ -133,7 +133,7 @@ button {
     box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.08);
 }
 
-.image-related-movie {
+.image-movie-recommend {
     object-fit: cover;
     border-radius: 8px 8px 0px 0px;
 }
@@ -210,5 +210,103 @@ button {
 
     to {
         transform: rotate(360deg);
+    }
+}
+
+@media (300px <=width <=1024px) {
+    .container-detail-movie {
+        width: 100%;
+        position: relative;
+    }
+
+    .button-back-poster {
+        position: absolute;
+        left: 0;
+    }
+
+    .overlay {
+        width: 100%;
+        background: rgb(0, 0, 0);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.9178265056022409) 37%, rgba(0, 0, 0, 0.8646052170868348) 48%, rgba(0, 0, 0, 0.6797312675070029) 66%, rgba(231, 231, 231, 0) 95%);
+    }
+
+    .detail-movie {
+        flex-direction: column;
+        display: flex;
+        padding: 10px;
+        gap: 0px;
+    }
+
+    .image {
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        box-shadow: 0px 7px 9px 7px rgb(0 0 0 / 28%);
+    }
+
+    .sub-info-movie {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sub-info-movie p {
+        color: #c2c2c2;
+    }
+
+    .description-poster-movie {
+        text-align: center;
+        line-height: 25px;
+        margin: 5px 0px;
+        font-size: 16px;
+    }
+
+    .container-score {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .tag-container {
+        margin: 10px 0px;
+        gap: 12px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .tag {
+        margin: 0;
+        border: 1px solid #F1CB51;
+        padding: 8px 16px;
+        color: #F1CB51;
+        border-radius: 30px;
+    }
+
+    .title-movie-detail {
+        margin: 15px 0px;
+        width: 100%;
+        text-align: center;
+        font-size: 25px;
+    }
+
+    .image-movie-recommend {
+        height: 185px;
+    }
+
+    .card-related div {
+        padding: 0px 10px;
+    }
+
+    .movie-container-related {
+        max-width: 90%;
+    }
+
+    .title-movie-related {
+        margin: 10px 0px;
     }
 }

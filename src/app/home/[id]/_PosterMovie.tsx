@@ -5,10 +5,9 @@ import { IconButton } from '@mui/material';
 import '../../styles/movie.css';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import CircularRating from '@/app/components/shared/Rating';
 
-interface Props {
-    movie: Movie
-}
+interface Props { movie: Movie };
 
 export const PosterMovie = (props: Props) => {
     const {
@@ -27,7 +26,7 @@ export const PosterMovie = (props: Props) => {
     return (
         <div className='container-detail-movie'>
             <div className='overlay' />
-            <IconButton sx={{ padding: 2 }} size='medium' onClick={() => router.back()}>
+            <IconButton className='button-back-poster' sx={{ padding: 2 }} size='medium' onClick={() => router.back()}>
                 <ArrowBack />
             </IconButton>
             <div className='detail-movie'>
@@ -40,22 +39,20 @@ export const PosterMovie = (props: Props) => {
                         height={200}
                     />
                     <button>
-                        Official trailer
+                        Oficial trailer
                         <PlayArrowOutlinedIcon />
                     </button>
                 </div>
                 <div>
-                    <h1 className='title-movie-detail'>
-                        {name}
-                    </h1>
+                    <h1 className='title-movie-detail'>{name}</h1>
                     <div className='sub-info-movie'>
                         <p>{date}</p>
                         <p>{duration}min</p>
                     </div>
-                    <p>{description}</p>
+                    <p className='description-poster-movie'>{description}</p>
                     <div className='container-score'>
                         <div className='score'>
-                            <h3>{rating}</h3>
+                            <CircularRating score={rating} />
                             <p>Users Score</p>
                         </div>
                         <div>

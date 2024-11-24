@@ -1,7 +1,7 @@
 'use client'
 
 import { Movie } from '@/app/interfaces/Movie';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import '../../styles/movie.css';
@@ -23,8 +23,9 @@ async function fetchMovie(id: number): Promise<Movie> {
 
         return movie;
 
-    } catch (error: any) {
-        if (error.response?.status === 404) {
+    } catch (error) {
+        if (error instanceof AxiosError && error.response?.status === 404) {
+            console.log(error)
             throw new Error('Movie not Found')
         }
         throw new Error('Failed to fetch');

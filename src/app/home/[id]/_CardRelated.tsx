@@ -11,7 +11,7 @@ export const CardRelated = ({ name, image }: Props) => {
             <Image
                 src={image}
                 alt='image-movie'
-                className='image-related-movie'
+                className='image-movie-recommend'
                 width={200}
                 height={250}
             />
