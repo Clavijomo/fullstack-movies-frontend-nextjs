@@ -48,6 +48,7 @@ Este es el proyecto frontend para la aplicación **Movies**, desarrollado con **
 - **`npm run dev`**: Inicia el servidor de desarrollo en `http://localhost:3000`.
 - **`npm run build`**: Construye la aplicación para producción.
 - **`npm start`**: Inicia el servidor en modo producción.
+- **`npm run test`**: Correr los test de la App.
 - **`npm run lint`**: Ejecuta el linter para verificar la calidad del código.
 
 ---
@@ -55,27 +56,28 @@ Este es el proyecto frontend para la aplicación **Movies**, desarrollado con **
 ## 🌲 Estructura de carpetas
 
 ```plaintext
-├── public/                # Archivos estáticos como imágenes, fuentes, etc.
-├── src/app/               # Carpeta principal de la aplicación
-│   ├── components/        # Componentes reutilizables de la aplicación
-│   ├── home/   # Home de películas
-│   ├── hooks/login/       # Hooks personalizados para login
-│   ├── interfaces/        # Tipos e interfaces de TypeScript
-│   ├── login/             # Componentes y lógica para autenticación
-│   ├── resources/login/   # Recursos adicionales para la autenticación
-│   ├── styles/login/      # Estilos relacionados con el login
-│   ├── favicon.ico        # Icono de la aplicación
-│   ├── globals.css        # Estilos globales de la aplicación
-│   ├── layout.tsx         # Componente de diseño principal
-│   └── page.tsx           # Página de inicio
-├── .eslintrc.json         # Configuración de ESLint
-├── .gitignore             # Archivos ignorados por Git
-├── next.config.ts         # Configuración personalizada de Next.js
-├── package.json           # Configuración de dependencias y scripts
-├── package-lock.json      # Registro de dependencias
-├── tsconfig.json          # Configuración de TypeScript
-```
+src/
+└── app/
+    ├── components/             # Componentes reutilizables de la aplicación
+    ├── context/                # Contextos globales para manejar estados
+    ├── home/                   # Home de la aplicación de películas
+    │   ├── [id]/              # Páginas dinámicas basadas en IDs de películas
+    │   ├── _Banner.tsx        # Componente del banner de películas
+    │   ├── _CardMovie.tsx     # Componente para mostrar una tarjeta de película
+    │   ├── _ModalFormUser.tsx # Componente para manejar formularios de usuario
+    │   ├── Home.test.tsx      # Pruebas unitarias para el componente Home
+    │   ├── page.tsx           # Página principal de la aplicación
+    ├── hooks/                 # Hooks personalizados para la aplicación
+    ├── interfaces/            # Tipos e interfaces globales en TypeScript
+    ├── resources/             # Recursos adicionales como imágenes, íconos, etc.
+    ├── styles/                # Estilos globales y específicos de la aplicación
+    ├── favicon.ico            # Ícono de la aplicación
+    ├── globals.css            # Estilos globales de la aplicación
+    ├── layout.tsx             # Componente para el diseño principal de la aplicación
+    ├── page.tsx               # Página de inicio
+.env.local                     # Variables de entorno locales
 
+```
 ---
 
 ## 🌟 Funcionalidades principales
